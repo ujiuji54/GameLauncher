@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import axios from 'axios'
+import bulma from 'bulma'
 
 import App from './App'
 import router from './router'
 import store from './store'
+
+Vue.use(bulma)
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
