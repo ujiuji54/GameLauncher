@@ -1,12 +1,12 @@
 <template>
   <div>
+    <HeaderItem/>
     <router-link to='/'>Hello</router-link>
-    <header></header>
   </div>
 </template>
 
 <script>
-  import Header from './components/header'
+  import HeaderItem from './HeaderItem'
 
   const remote = require('electron').remote
   const app = remote.app
@@ -19,7 +19,7 @@
   export default {
     name: 'index',
     components: {
-      Header
+      HeaderItem
     },
     method: {
       exec: exec(path + '/', {}, function () {})

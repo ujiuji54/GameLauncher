@@ -3,8 +3,8 @@
     <div class="nav-right">
       <span class="nav-item">
         <div class="control has-addons">
-          <input class="input" type="search" name="search" placeholder="キーワード検索">
-          <a class="button is-info"><i class="fa fa-search"></i>検索</a>
+          <input class="input" type="search" name="search" placeholder="繧ｭ繝ｼ繝ｯ繝ｼ繝画､懃ｴ｢">
+          <a class="button is-info"><i class="fa fa-search"></i>讀懃ｴ｢</a>
         </div>
       </span>
     </div>
