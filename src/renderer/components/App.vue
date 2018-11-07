@@ -9,19 +9,33 @@
         <p><strong>{{ game.name }}</strong><br>
           {{ game.text }}
         </p>
-        <a class="button is-info">
+        <button class="button is-info">
           Details
-        </a>
+        </button>
+        <button class="button is-primary" v-on:click="exec()">
+          Play
+        </button>
       </div>
     </div>
   </article>
 </template>
 
 <script>
+  const remote = require('electron').remote
+  const app = remote.app
+  const path = app.getAppPath()
+  const exec = require('child_process').execFile
+
   export default{
     data: function () {
       return {
         game: require('../assets/gamedata')
+      }
+    },
+    methods: {
+      exec () {
+        console.log(path)
+        exec(path + '/', {}, function () {})
       }
     }
   }
