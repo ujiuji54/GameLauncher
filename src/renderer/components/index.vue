@@ -16,14 +16,9 @@
   const remote = require('electron').remote
   const app = remote.app
   const exeDirPath = path.dirname(app.getPath('exe'))
-  console.log(exeDirPath)
 
-  var fileList = []
-  fs.readdir(exeDirPath, function (err, files) {
-    if (err) throw err
-    fileList = files.filter(function (file) {
-      return fs.statSync(file).isFile() && /.*\.json$/.test(file)
-    })
+  let fileList = fs.readdirSync(exeDirPath).filter(function (file) {
+    if (file.endsWith('.json')) return file
   })
   console.log(fileList)
 
