@@ -7,7 +7,8 @@
     <div class="media-content">
       <div class="content">
         <p><strong>{{ game.name }}</strong><br>
-          {{ game.text }}
+          {{ game.text }}<br>
+          {{ jsonpath }}
         </p>
         <button class="button is-info">
           Details
@@ -32,6 +33,7 @@
         game: require('../assets/gamedata')
       }
     },
+    props: ['jsonpath'],
     methods: {
       exec () {
         console.log(path)

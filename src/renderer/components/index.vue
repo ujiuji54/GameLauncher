@@ -1,7 +1,9 @@
 <template>
   <div>
     <HeaderItem/>
-    <App/>
+    <App
+      v-bind:jsonpath = "fileList[0]"
+    ></App>
     <FooterItem/>
   </div>
 </template>
@@ -16,6 +18,7 @@
   const remote = require('electron').remote
   const app = remote.app
   const exeDirPath = path.dirname(app.getPath('exe'))
+  console.log('アプリがあるdirectoryのpath: ' + exeDirPath)
 
   let fileList = fs.readdirSync(exeDirPath).filter(function (file) {
     if (file.endsWith('.json')) return file
@@ -24,6 +27,11 @@
 
   export default {
     name: 'index',
+    data: function () {
+      return {
+        fileList: fileList
+      }
+    },
     components: {
       HeaderItem, FooterItem, App
     }
