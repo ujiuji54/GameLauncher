@@ -3,7 +3,8 @@
     <HeaderItem/>
     <App
       v-for = "file in fileList"
-      v-bind:jsonpath = "file"
+      v-bind:jsonPath = "file"
+      v-bind:appDirPath = "appDirPath"
     ></App>
     <FooterItem/>
   </div>
@@ -30,7 +31,8 @@
     name: 'index',
     data: function () {
       return {
-        fileList: fileList
+        fileList: fileList,
+        appDirPath: exeDirPath
       }
     },
     components: {

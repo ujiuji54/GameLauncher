@@ -22,21 +22,16 @@
 
 <script>
   const fs = require('fs')
-  const path = require('path')
-  const remote = require('electron').remote
-  const app = remote.app
-  const exeDirPath = path.dirname(app.getPath('exe'))
-  console.log(exeDirPath)
-
   const exec = require('child_process').execFile
 
   export default{
     data: function () {
+      console.log(this.appDirPath)
       return {
-        gamejson: JSON.parse(fs.readFileSync(exeDirPath + '/' + this.jsonpath, 'utf8'))
+        gamejson: JSON.parse(fs.readFileSync(this.appDirPath + '/' + this.jsonPath, 'utf8'))
       }
     },
-    props: ['jsonpath'],
+    props: ['jsonPath', 'appDirPath'],
     methods: {
       exec () {
         exec('/', {}, function () {})
