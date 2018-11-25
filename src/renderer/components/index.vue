@@ -2,7 +2,8 @@
   <div>
     <HeaderItem/>
     <App
-      v-bind:jsonpath = "fileList[0]"
+      v-for = "file in fileList"
+      v-bind:jsonpath = "file"
     ></App>
     <FooterItem/>
   </div>

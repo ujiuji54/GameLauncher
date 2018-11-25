@@ -6,9 +6,8 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <p><strong>{{ game.name }}</strong><br>
-          {{ game.text }}<br>
-          {{ jsonpath }}
+        <p><strong>{{ gamejson.name }}</strong><br>
+          {{ gamejson.text }}<br>
         </p>
         <button class="button is-info">
           Details
@@ -22,22 +21,24 @@
 </template>
 
 <script>
+  const path = require('path')
   const remote = require('electron').remote
   const app = remote.app
-  const path = app.getAppPath()
+  const exeDirPath = path.dirname(app.getPath('exe'))
+  console.log(exeDirPath)
+
   const exec = require('child_process').execFile
 
   export default{
     data: function () {
       return {
-        game: require('../assets/gamedata')
+        gamejson: require('../assets/gamedata')
       }
     },
     props: ['jsonpath'],
     methods: {
       exec () {
-        console.log(path)
-        exec(path + '/', {}, function () {})
+        exec('/', {}, function () {})
       }
     }
   }
