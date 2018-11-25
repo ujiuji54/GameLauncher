@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  const fs = require('fs')
   const path = require('path')
   const remote = require('electron').remote
   const app = remote.app
@@ -32,7 +33,7 @@
   export default{
     data: function () {
       return {
-        gamejson: require('../assets/gamedata')
+        gamejson: JSON.parse(fs.readFileSync(exeDirPath + '/' + this.jsonpath, 'utf8'))
       }
     },
     props: ['jsonpath'],
